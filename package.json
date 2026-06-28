@@ -1,0 +1,14 @@
+{
+  "name": "umut-ceyran-portfolio",
+  "version": "1.0.0",
+  "description": "Umut Ceyran — CBS Uzmanı & Yazılım Geliştirici portfolyo sitesi",
+  "scripts": {
+    "build:tailwind": "tailwindcss -i ./css/tailwind.css -o ./css/tailwind-build.css --minify",
+    "watch:tailwind": "tailwindcss -i ./css/tailwind.css -o ./css/tailwind-build.css --watch"
+  },
+  "author": "Umut Ceyran",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.4"
+  }
+}

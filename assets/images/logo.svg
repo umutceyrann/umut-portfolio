@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Siyah arka plan -->
+  <rect width="100" height="100" rx="12" fill="#0d0d0d"/>
+  
+  <!-- Yeşil aksen çizgi -->
+  <line x1="0" y1="0" x2="40" y2="0" stroke="#6dbb00" stroke-width="3"/>
+  
+  <!-- Beyaz UC metni -->
+  <text x="50" y="68" font-size="56" font-weight="700" text-anchor="middle" fill="#ffffff" font-family="Roboto, -apple-system, BlinkMacSystemFont, sans-serif" letter-spacing="-2">UC</text>
+</svg>
