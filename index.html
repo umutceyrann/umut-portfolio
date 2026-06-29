@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-theme="light">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Umut Ceyran — CBS Uzmanı & Yazılım Geliştirici</title>
+        <title>Umut Ceyran — CBS Uzmanı</title>
         <meta
             name="description"
             content="Coğrafi Bilgi Sistemleri (CBS) ve yazılım geliştirme uzmanı. ArcGIS Pro, Python, QGIS, PostGIS ile mekansal veri analizi ve web haritalama çözümleri."
@@ -36,6 +36,7 @@
      <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
 <link rel="preload" as="style"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
     onload="this.onload=null;this.rel='stylesheet'"
@@ -45,10 +46,10 @@
 />
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
     </head>
-    <body class="tw-flex tw-min-h-[100vh] tw-flex-col tw-bg-[#fff] tw-font-mono">
+    <body class="tw-flex tw-min-h-[100vh] tw-flex-col tw-font-mono">
         <!-- ============ HEADER ============ -->
         <header
-            class="tw-absolute tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-bg-opacity-0 tw-px-[5%] max-lg:tw-mr-auto max-lg:tw-px-4 lg:tw-justify-around"
+            class="tw-fixed tw-top-0 tw-z-20 tw-flex tw-h-[60px] tw-w-full tw-bg-opacity-0 tw-px-[5%] max-lg:tw-mr-auto max-lg:tw-px-4 lg:tw-justify-around"
         >
             <a class="tw-flex tw-h-[50px] tw-place-items-center tw-p-[4px]" href="#about">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="tw-h-[50px] tw-w-[50px]">
@@ -72,10 +73,17 @@
                     class="tw-mx-4 tw-flex tw-place-items-center tw-gap-[14px] tw-text-base max-md:tw-w-full max-md:tw-flex-col max-md:tw-place-content-center"
                 >
                     <button
+                        id="theme-toggle"
+                        onclick="toggleTheme()"
+                        aria-label="theme"
+                    >
+                        <i class="bi bi-moon-fill" id="theme-icon"></i>
+                    </button>
+                    <button
                         id="lang-toggle"
                         onclick="toggleLang()"
                         aria-label="language"
-                        class="tw-flex tw-h-[36px] tw-place-items-center tw-gap-1 tw-rounded-full tw-border-[1px] tw-border-solid tw-border-black tw-px-3 tw-text-sm tw-font-medium tw-transition-colors hover:tw-bg-black hover:tw-text-white"
+                        class="tw-flex tw-h-[36px] tw-place-items-center tw-gap-1 tw-rounded-full tw-border-[1px] tw-border-solid tw-px-3 tw-text-sm tw-font-medium"
                     >
                         <i class="bi bi-translate"></i>
                         <span id="lang-label">EN</span>
@@ -83,12 +91,10 @@
                     <a
                         href="#contact"
                         aria-label="contact"
-                        class="tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-rounded-full tw-bg-black tw-p-1 tw-pl-4 tw-text-white"
+                        class="header-contact-btn"
                     >
                         <span data-en="Get in touch">İletişime Geç</span>
-                        <div
-                            class="tw-flex tw-h-[30px] tw-w-[30px] tw-place-content-center tw-place-items-center tw-rounded-full tw-bg-white tw-font-semibold tw-text-black"
-                        >
+                        <div class="btn-circle">
                             <i class="bi bi-arrow-up-right"></i>
                         </div>
                     </a>
@@ -111,55 +117,70 @@
                 class="tw-flex tw-h-full tw-min-h-[100vh] tw-w-full tw-place-content-center tw-gap-6 tw-p-[5%] max-xl:tw-place-items-center max-lg:tw-flex-col"
             >
                 <div class="tw-flex tw-max-w-[620px] tw-flex-col tw-place-content-center">
-                    <span class="reveal-hero-text tw-mb-2 tw-text-lg tw-text-gray-600" data-en="Hello, I'm">Merhaba, ben</span>
+                    <span class="reveal-hero-text hero-subtitle tw-mb-2 tw-text-lg" data-en="Hello, I'm">Merhaba, ben</span>
                     <div
                         class="tw-flex tw-flex-wrap tw-text-7xl tw-font-semibold tw-uppercase tw-leading-[85px] max-lg:tw-text-4xl max-md:tw-leading-snug"
+                        style="font-family:'Plus Jakarta Sans',sans-serif;"
                     >
-                        <span class="reveal-hero-text tw-bg-blue-200 tw-p-1 tw-px-6"> Umut </span>
+                        <span class="reveal-hero-text hero-name-highlight tw-p-1"> Umut </span>
                         <br />
                         <span class="reveal-hero-text"> Ceyran </span>
                     </div>
                     <div
-                        class="reveal-hero-text tw-mt-3 tw-text-2xl tw-font-medium max-lg:tw-text-xl"
+                        class="reveal-hero-text hero-subtitle tw-mt-3 tw-text-2xl tw-font-medium max-lg:tw-text-xl"
                         data-en="GIS Specialist &middot; Software Developer"
+                        style="font-family:'Plus Jakarta Sans',sans-serif;"
                     >
                         Coğrafi Bilgi Sistemleri Uzmanı &middot; Yazılım Geliştirici
                     </div>
                     <div
-                        class="reveal-hero-text tw-mt-3 tw-max-w-[480px] tw-p-1 tw-text-justify tw-text-gray-700 max-lg:tw-max-w-full"
+                        class="reveal-hero-text tw-mt-3 tw-max-w-[480px] tw-p-1 tw-text-justify max-lg:tw-max-w-full"
+                        style="color:var(--text-2);"
                         data-en="I turn spatial data into meaningful stories. I model the future with Python automation and Web GIS solutions."
                     >
                         Mekansal veriyi anlamlı hikayelere dönüştürüyorum. Python otomasyonları ve Web CBS çözümleri ile geleceği modelliyorum.
                     </div>
 
-                    <div class="reveal-hero-text tw-mt-5 tw-flex tw-flex-wrap tw-place-items-center tw-gap-3 tw-p-1">
-                        <a
-                            href="#projects"
-                            class="tw-flex tw-h-[40px] tw-place-items-center tw-gap-2 tw-rounded-full tw-bg-black tw-p-1 tw-pl-4 tw-text-white"
-                        >
+                    <div class="reveal-hero-text tw-mt-6 tw-flex tw-flex-wrap tw-place-items-center tw-gap-3 tw-p-1">
+                        <a href="#projects" class="cta-btn">
                             <span data-en="View my projects">Projelerimi Gör</span>
-                            <div
-                                class="tw-flex tw-h-[30px] tw-w-[30px] tw-place-content-center tw-place-items-center tw-rounded-full tw-bg-white tw-font-semibold tw-text-black"
-                            >
+                            <div class="btn-circle">
                                 <i class="bi bi-folder2-open"></i>
                             </div>
-                        </a>    
-                        
+                        </a>
+                        <a href="#contact" class="cta-btn" style="background-color:var(--accent-dim);color:var(--text);">
+                            <span data-en="Get in touch">İletişime Geç</span>
+                            <div class="btn-circle">
+                                <i class="bi bi-arrow-up-right"></i>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
                 <div
-                    class="tw-flex tw-w-full tw-max-w-[42%] tw-place-content-center tw-place-items-center tw-overflow-hidden max-lg:tw-max-w-[unset]"
+                    class="tw-flex tw-w-full tw-max-w-[42%] tw-place-content-center tw-place-items-center max-lg:tw-max-w-[unset]"
                 >
-                    <div
-                        class="tw-relative tw-flex tw-max-h-[520px] tw-min-h-[420px] tw-min-w-[330px] tw-max-w-[420px] tw-overflow-hidden tw-rounded-2xl tw-border-[1px] tw-border-solid tw-border-black max-lg:tw-h-fit max-lg:tw-max-h-[360px] max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
-                    >
-                        <img
-                            src="./assets/images/profile.jpeg"
-                            alt="Umut Ceyran"
-                            class="reveal-hero-img tw-z-[1] tw-h-full tw-w-full tw-object-cover"
-                        />
+                    <div class="profile-container">
+                        <span class="tech-badge tb-top"><i class="bi bi-map-fill"></i> ArcGIS Pro</span>
+                        <span class="tech-badge tb-mid"><i class="bi bi-filetype-py"></i> Python</span>
+                        <span class="tech-badge tb-bottom"><i class="bi bi-database-fill"></i> PostGIS</span>
+
+                        <div
+                            class="profile-wrapper tw-relative tw-flex tw-max-h-[520px] tw-min-h-[420px] tw-min-w-[330px] tw-max-w-[420px] tw-overflow-hidden tw-rounded-2xl tw-border-[1px] tw-border-solid max-lg:tw-h-fit max-lg:tw-max-h-[360px] max-lg:tw-w-[320px] max-lg:tw-min-w-[320px]"
+                        >
+                            <img
+                                src="./assets/images/profile.jpeg"
+                                alt="Umut Ceyran"
+                                class="reveal-hero-img tw-z-[1] tw-h-full tw-w-full tw-object-cover"
+                            />
+                        </div>
                     </div>
+                </div>
+
+                <!-- Scroll indicator -->
+                <div class="scroll-indicator tw-hidden lg:tw-flex" id="scroll-hint">
+                    <span>scroll</span>
+                    <i class="bi bi-chevron-down"></i>
                 </div>
             </div>
         </section>
@@ -488,7 +509,7 @@
             </div>
 
             <!-- Öne çıkan başarı -->
-            <div class="reveal-up tw-mt-10 tw-flex tw-max-w-[700px] tw-place-items-center tw-gap-4 tw-rounded-xl tw-border-2 tw-border-black tw-bg-green-200 tw-p-5">
+            <div class="reveal-up featured-award tw-mt-10 tw-flex tw-max-w-[700px] tw-place-items-center tw-gap-4 tw-rounded-xl tw-p-5">
                 <i class="bi bi-award-fill tw-text-4xl"></i>
                 <div>
                     <h4 class="tw-text-xl tw-font-semibold" data-en="Esri Story Maps — 2nd Prize">Esri Story Maps — 2. Ödül</h4>
